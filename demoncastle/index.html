@@ -11,7 +11,6 @@
 <meta name="description" content="魔兽城堡">
 
 <title>怪兽塔防</title>   
-  	<script type="text/javascript"></script>
 	<style>
 		html, body {
 			background: #000;
@@ -31,6 +30,10 @@
 	
 <canvas width="320" height="480" style="position: absolute; -webkit-transform-origin-x: 0px; -webkit-transform-origin-y: 0px;top: 0px; "></canvas>
 
-
+<script type="text/javascript">
+	document.body.addEventListener('touchmove',function(event){
+   		event.preventDefault();//阻止浏览器的默认事件
+	},false)
+</script>
 
 </body></html>
