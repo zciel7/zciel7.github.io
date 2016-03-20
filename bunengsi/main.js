@@ -2138,7 +2138,11 @@ var link, jsGame;
 				if (!l.died) {
 					l.time = t - l.date;
 					for (var s = 0, f; f = l.scenes[s]; s++) {
-						f.action(0, u + (s + 1) * n, i, n, -8).render();
+						console.log("u:"+u);
+						console.log("s:"+s);
+						console.log("n:"+n);
+						console.log(u + (s + 1) * n)
+						f.action(0, 50 + (s + 1) * n, i, n, -8).render();
 						if (f.hostDied) {
 							l.died = !0, l.dieDate = Date.now(), l.shine = r.get(0).mark(f.host.x, f.host.y - 20).setStep(2);
 							break
@@ -2153,7 +2157,7 @@ var link, jsGame;
 			}).menu(function() {
 				e.canvas.fillStyle("#FFF").fillScreen().drawImage("123",0,0,640,1136,0,0,window.innerWidth,window.innerHeight), e.buttonLayout.released("difficulty1") ? (l.moduleName = "我的成绩", hideAd(), c(2)) : e.buttonLayout.released("difficulty2") ? (l.moduleName = "噩梦模式", c(3)) : e.buttonLayout.released("difficulty3") ? (l.moduleName = "地狱模式", c(4)) : e.buttonLayout.released("difficulty4") ? (l.moduleName = "炼狱模式", c(5)) : e.buttonLayout.released("rank") && dp_Ranking()
 			}).zone(function() {
-				e.canvas.fillScreen().drawImage("endbg",0,0,640,1136,0,0,window.innerWidth,window.innerHeight).fillStyle("#FFF").fillStyle("#FFF").drawString("成绩  :  "+a(l.time, "秒"), 0, u + 340, e.graphics.VCENTER, !1, null, null, "2em 微软雅黑").fillStyle("#FFF").drawString("最佳  :  " + a(l.bestTime, "秒"), 0, u + 500, e.graphics.VCENTER, !1, null, null, "3em 微软雅黑"), l.time > l.bestTime && e.canvas.fillStyle("#FFF").drawString("新纪录!", 0, u + 240, e.graphics.VCENTER, !1, null, null, "50px 微软雅黑"), e.buttonLayout.released("return") ? c(2) : e.buttonLayout.released("restart") && dp_share2(l.time)
+				e.canvas.fillScreen().drawImage("endbg",0,0,640,1136,0,0,window.innerWidth,window.innerHeight).fillStyle("#FFF").fillStyle("#FFF").drawString("成绩  :  "+a(l.time, "秒"), 0, u + 340, e.graphics.VCENTER, !1, null, null, "2em 微软雅黑").fillStyle("#FFF").drawString("最佳  :  " + a(l.bestTime, "秒"), 0, u + 400, e.graphics.VCENTER, !1, null, null, "2em 微软雅黑"), l.time > l.bestTime && e.canvas.fillStyle("#FFF").drawString("新纪录!", 0, u + 240, e.graphics.VCENTER, !1, null, null, "50px 微软雅黑"), e.buttonLayout.released("return") ? c(2) : e.buttonLayout.released("restart") && dp_share2(l.time)
 			}).events.mouseDown(function(e, t, n) {
 				if (l.died) return !1;
 				for (var r = 0, i; i = l.scenes[r]; r++) i.touchStart(t, n)
@@ -2219,6 +2223,7 @@ var link, jsGame;
 						this.id = t, this.x = 0, this.baseY = 0, this.width = 0, this.height = 0, this.host = n.get().setStep(2), this.hostDied = !1, this.boxes = [], this.displayDate = Date.now(), this.displayTimeout = e.comm.getRandom(1e3, 2e3)
 					}, null, {
 						render: function() {
+							//console.log(this.baseY)
 							e.canvas.fillStyle("#d39fb1").fillRect(this.x, this.baseY - 5, this.width, 5);
 							for (var t = this.boxes.length - 1, n; n = this.boxes[t]; t--) {
 								e.canvas.drawImage("zhangai",0,0,49,61,n.x,n.y,n.width,n.height);
