@@ -2138,7 +2138,7 @@ var link, jsGame;
 				if (!l.died) {
 					l.time = t - l.date;
 					for (var s = 0, f; f = l.scenes[s]; s++) {
-						f.action(0, (s + 1) * n, i, n, -8).render();
+						f.action(0, (s + 1) * 240, i, n, -8).render();
 						if (f.hostDied) {
 							l.died = !0, l.dieDate = Date.now(), l.shine = r.get(0).mark(f.host.x, f.host.y - 20).setStep(2);
 							break
