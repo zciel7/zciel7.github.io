@@ -2133,12 +2133,13 @@ var link, jsGame;
 			};
 			e.run(function() {
 				var t = Date.now();
-				e.canvas.fillStyle("#FFF").fillScreen().drawImage("bg", 0,0,1136,640,0, 0,window.innerWidth,window.innerHeight);
+				e.canvas.fillStyle("#FFF").fillScreen().drawImage("bg", 0,0,640,1136,0, 0,window.innerWidth,window.innerHeight);
 				var n = ~~(o / l.scenes.length);
 				if (!l.died) {
 					l.time = t - l.date;
 					for (var s = 0, f; f = l.scenes[s]; s++) {
-						f.action(0, (s + 1) * 240, i, n, -8).render();
+						console.log(u);
+						f.action(0, 75+(s + 1) * 240, i, 240, -8).render();
 						if (f.hostDied) {
 							l.died = !0, l.dieDate = Date.now(), l.shine = r.get(0).mark(f.host.x, f.host.y - 20).setStep(2);
 							break
