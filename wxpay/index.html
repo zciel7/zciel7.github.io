@@ -4,7 +4,8 @@
 	<meta charset="utf-8">
 	<title></title>
 	<!-- <link rel="stylesheet" href=""> -->
-	
+	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
 	<script type="text/javascript">
 		alert('1')
 		function onBridgeReady(){
@@ -12,31 +13,35 @@
 		   WeixinJSBridge.invoke(
 		       'getBrandWCPayRequest', {
 		           "appId" ： "wx5689104fd0f2112e",     //公众号名称，由商户传入     
-		           "timeStamp"：(Date.parse(new Date()))/1000 + "",         //时间戳，自1970年以来的秒数     
+		           "timeStamp"："1460466406",         //时间戳，自1970年以来的秒数     
 		           "nonceStr" ： "e61463f8efa94090b1f366cccfbbb444", //随机串     
 		           "package" ： "prepay_id=u802345jgfjsdfgsdg888",     
 		           "signType" ： "MD5",         //微信签名方式：     
-		           "paySign" ： "8613985EC49EB8F757AE6439E879BB2A" //微信签名 
+		           "paySign" ： "a97783fa3215ea286285d2951258270f" //微信签名 
 		       },
 		       function(res){     
+		       	alert(res.err_msg);
 		           if(res.err_msg == "get_brand_wcpay_request：ok" ) {
 		           }     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。 
 		       }
 		   ); 
 		}
-		if (typeof WeixinJSBridge == "undefined"){
-		   if( document.addEventListener ){
-		       document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
-		   }else if (document.attachEvent){
-		       document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
-		       document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
-		   }
-		}else{
-		   onBridgeReady();
-		}
+
+		function pay(){  
+		    if (typeof WeixinJSBridge == "undefined"){
+		       if( document.addEventListener ){
+		             document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+		         }else if (document.attachEvent){
+		             document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+		            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+		        }
+		     }else{
+		       onBridgeReady();
+		     }
+		 }
 	</script>
 </head>
 <body>
-	<input style="width:100%;height:250px;font-size:200px" type="button" id="btn" onclick="onBridgeReady()" value="click" >
+	<input style="width:100%;height:250px;font-size:200px" type="button" id="btn" onclick="pay()" value="click" >
 </body>
 </html>
