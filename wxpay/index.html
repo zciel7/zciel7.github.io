@@ -10,7 +10,6 @@
 	<input style="width:100%;height:250px;font-size:200px" type="button" onclick="alert('1')" value="click2" >
 </body>
 <script type="text/javascript">
-		alert('1')
 		function onBridgeReady(){
 
 		   WeixinJSBridge.invoke(
@@ -31,6 +30,7 @@
 		}
 
 		function callPay() {
+			alert('1');
 	        if (typeof WeixinJSBridge == "undefined") {
 	            if (document.addEventListener) {
 	                document.addEventListener('WeixinJSBridgeReady', onBridgeReady,
